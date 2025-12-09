@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Scrabble — Abhineet Akkal</title>
+  <meta name="description" content="Scrabble project — fork adaptations and features." />
+<link
+  href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+  rel="stylesheet"
+/>  <link rel="stylesheet" href="/assets/css/styles.css">
+</head>
+<body>
+  <div id="site-header" data-inject="/components/header.html"></div>
+
+  <main class="site-container project-detail">
+    <nav class="breadcrumb">
+      <a class="crumb" href="/">Home</a> / <a class="crumb" href="/projects/index.html">Projects</a> / <span>Scrabble</span>
+    </nav>
+
+    <article>
+      <header>
+        <h1>Scrabble (Fork)</h1>
+        <p class="meta">Java • Board Game</p>
+      </header>
+
+      <div class="project-grid">
+        <figure>
+          <img src="/assets/img/projects/scrabble.png" alt="Scrabble screenshot">
+        </figure>
+
+        <section>
+          <h2>Overview</h2>
+          <p>This project started as a fork of a community Scrabble implementation and includes my additions: robust scoring logic, tile bag shuffling, and clearer turn sequencing. I focused on correctness and maintainability of the core board logic.</p>
+
+          <h3>Key features</h3>
+          <ul>
+            <li>Full scoring system including double/triple word/letter</li>
+            <li>Tile bag with frequency-controlled draws</li>
+            <li>Turn validation with basic AI opponent (optional)</li>
+          </ul>
+
+          <h3>Tech stack</h3>
+          <p>Java, OOP design</p>
+
+          <h3>Links</h3>
+          <p><a href="https://github.com/abhiakkal/Scrabble" target="_blank" rel="noopener">Repository</a></p>
+          <p><a class="btn" href="/projects/index.html">Back to projects</a></p>
+        </section>
+      </div>
+    </article>
+  </main>
+
+  <div id="site-footer" data-inject="/components/footer.html"></div>
+
+  <script type="module" src="/assets/js/header-injector.js"></script>
+  <script type="module" src="/assets/js/navbar.js"></script>
+  <script type="module" src="/assets/js/main.js"></script>
+</body>
+</html>
