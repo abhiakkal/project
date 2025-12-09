@@ -44,17 +44,9 @@ async function injectComponents() {
             // the GitHub Pages project root. If a <base> tag is present and
             // explicitly points to the repo (contains '/project'), use that.
             // This avoids treating './' as '/' which causes 404s on Pages.
-            const repoPath = '/project/';
-            let computedPath = repoPath;
-            try {
-              if (baseHref && baseHref.includes(repoPath)) {
-                computedPath = new URL(baseHref, location.origin).pathname;
-              }
-            } catch (e) {
-              // ignore and use fallback
-            }
-            brand.setAttribute('href', computedPath);
-            console.debug('header-injector: set brand href ->', computedPath);
+            const indexUrl = location.origin + '/project/index.html';
+            brand.setAttribute('href', indexUrl);
+            console.debug('header-injector: set brand href ->', indexUrl);
           }
         } catch (e) {
           console.error('header-injector: failed to normalize brand href', e);
