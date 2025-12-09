@@ -33,6 +33,33 @@ async function injectComponents() {
       const text = await res.text();
       el.innerHTML = text;
 
+        // Ensure brand/home link in injected header points to the site's base
+        // so clicks from subpages go to the correct GitHub Pages project root.
+        try {
+          const baseTag = document.querySelector('base');
+          const baseHref = baseTag ? baseTag.getAttribute('href') : null;
+          const brand = el.querySelector('.brand');
+          if (brand) {
+            // Prefer the explicit repo root '/project/' so clicks always land on
+            // the GitHub Pages project root. If a <base> tag is present and
+            // explicitly points to the repo (contains '/project'), use that.
+            // This avoids treating './' as '/' which causes 404s on Pages.
+            const repoPath = '/project/';
+            let computedPath = repoPath;
+            try {
+              if (baseHref && baseHref.includes(repoPath)) {
+                computedPath = new URL(baseHref, location.origin).pathname;
+              }
+            } catch (e) {
+              // ignore and use fallback
+            }
+            brand.setAttribute('href', computedPath);
+            console.debug('header-injector: set brand href ->', computedPath);
+          }
+        } catch (e) {
+          console.error('header-injector: failed to normalize brand href', e);
+        }
+
       // Execute any scripts in injected HTML in page context
       const scripts = Array.from(el.querySelectorAll('script'));
       for (const old of scripts) {
