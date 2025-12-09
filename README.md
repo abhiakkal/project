@@ -46,7 +46,7 @@ Key development notes
 
 Paths and deployment
 --------------------
-- The project currently uses root-absolute asset paths (e.g. `/assets/...`). On GitHub Pages or other subpath deployments, either:
+- The project currently uses root-absolute asset paths (e.g. `assets/...`). On GitHub Pages or other subpath deployments, either:
   - Convert asset links to relative paths, or
   - Add `<base href="/repo-name/">` in `<head>` (update when deployed).
 - GitHub Pages:
